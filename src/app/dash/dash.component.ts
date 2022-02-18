@@ -21,6 +21,7 @@ export class DashComponent implements OnInit {
   }
 
   createMoles() {
+    this.activeMoles = [];
     for(let i=0; i< this.maxMoles; i++ ) {
       this.activeMoles.push(new Mole(i));
     }
