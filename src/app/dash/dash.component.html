@@ -1,6 +1,5 @@
-
-<div *ngIf="gameRunning">
-    <app-current-score></app-current-score>
+<app-current-score></app-current-score>
+<div class="dash" *ngIf="gameRunning">
     <div *ngFor="let mole of activeMoles">
         <app-mole [active]="mole && mole.active"></app-mole>
     </div>
