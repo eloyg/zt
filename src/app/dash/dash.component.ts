@@ -10,15 +10,17 @@ export class DashComponent {
 
   maxMoles = 6; // game has 6 moles in total
   activeMoles: Mole[] = []; // size changes randomly
-  gameDuration = 30; // in secs.
+  gameDuration = 10; // in secs.
   gameRunning = false; // false if game has ended.
   actionName = "Start game";
 
-  constructor() { }
+  constructor() { 
+  }
 
   createMoles() {
-    for(let i=0; i< this.maxMoles; i++ )
+    for(let i=0; i< this.maxMoles; i++ ) {
       this.activeMoles.push(new Mole(i));
+    }
   }
   
   startMatch() {
