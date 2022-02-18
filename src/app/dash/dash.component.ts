@@ -1,6 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { timer } from 'rxjs';
 import { Mole } from '../model/mole.model';
+import { setHighestScore } from '../state/actions';
+import { ScoreState } from '../state/reducer';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
@@ -9,12 +12,12 @@ import { Mole } from '../model/mole.model';
 export class DashComponent implements OnInit {
 
   maxMoles = 6; // game has 6 moles in total
-  activeMoles: Mole[] = []; // size changes randomly
+  activeMoles: Mole[] = [];
   gameDuration = 10; // in secs.
   gameRunning = false; // false if game has ended.
   actionName = "Start game";
 
-  constructor() { 
+  constructor(private store: Store<ScoreState>) { 
   }
 
   ngOnInit() {
@@ -33,9 +36,14 @@ export class DashComponent implements OnInit {
     this.setMatchClock();
   }
 
+  processHighestScore() {
+    this.store.dispatch(setHighestScore());
+  }
+  
   endMatch() {
     this.gameRunning = false;      
     this.actionName = "Try again";
+    this.processHighestScore();
   }
 
   setMatchClock() {

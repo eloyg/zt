@@ -7,6 +7,8 @@ import { DashComponent } from './dash/dash.component';
 import { MoleComponent } from './mole/mole.component';
 import { HighestScroreComponent } from './highest-score/highest-scrore.component';
 import { CurrentScoreComponent } from './current-score/current-score.component';
+import { StoreModule } from '@ngrx/store';
+import { scoreReducer } from './state/reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { CurrentScoreComponent } from './current-score/current-score.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    // StoreModule.forRoot({})
+    StoreModule.forRoot({score: scoreReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,4 @@
-export const SET_HIGHEST_SCORE = 'SET_HIGHEST_SCORE';
-export const UPDATE_CURRENT_SCORE = 'SET_HIGHEST_SCORE';
+import { createAction, props } from '@ngrx/store';
 
-export class SetHighestScoreAction {
-    readonly type = SET_HIGHEST_SCORE;
-    constructor(public score: number) {}
-}
-
-export class UpdateCurrentScoreAction {
-    readonly type = UPDATE_CURRENT_SCORE;
-    constructor(public scoreVariation: number) {}
-}
-
-export type Actions = SetHighestScoreAction | UpdateCurrentScoreAction; 
+export const setHighestScore = createAction('[Score] Highest Score');
+export const updateCurrentScore = createAction('[Scoreboard Page] Current Score', props<{scoreVariation: number}>());
