@@ -1,0 +1,15 @@
+
+<div>
+    <div>
+        <app-mole></app-mole>
+        <app-mole></app-mole>
+        <app-mole *ngIf="activeMoles[3]"></app-mole>
+    </div>
+    <div>
+        <app-mole *ngIf="activeMoles[4]"></app-mole>
+        <app-mole *ngIf="activeMoles[5]"></app-mole>
+        <app-mole *ngIf="activeMoles[6]"></app-mole>
+    </div>
+</div>
+<button *ngIf="!gameIsRunning" (click)="startGame()">Start game</button>
+<button *ngIf="gameIsRunning" (click)="anotherTry()">Try again</button>
