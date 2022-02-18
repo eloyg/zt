@@ -24,9 +24,6 @@ export class DashComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.gameIsRunning = false;
-    }, this.gameDuration);
   }
 
   startMatch() {
