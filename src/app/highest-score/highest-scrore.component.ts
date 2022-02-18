@@ -13,8 +13,8 @@ export class HighestScroreComponent implements OnInit {
 
   score: number = 0;
   constructor(private store: Store<ScoreState>) {
-    this.store.subscribe(state => {
-      this.score = state.highestScore;
+    this.store.subscribe((state: any) => {
+       this.score = state.score.highestScore;
     });
   }
 
