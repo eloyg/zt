@@ -1,14 +1,14 @@
 
 <div>
     <div>
-        <app-mole></app-mole>
-        <app-mole></app-mole>
-        <app-mole *ngIf="activeMoles[3]"></app-mole>
+        <app-mole [active]="activeMoles[1].active"></app-mole>
+        <app-mole [active]="activeMoles[2].active"></app-mole>
+        <app-mole [active]="activeMoles[3].active"></app-mole>
     </div>
     <div>
-        <app-mole *ngIf="activeMoles[4]"></app-mole>
-        <app-mole *ngIf="activeMoles[5]"></app-mole>
-        <app-mole *ngIf="activeMoles[6]"></app-mole>
+        <app-mole [active]="activeMoles[4].active"></app-mole>
+        <app-mole [active]="activeMoles[5].active"></app-mole>
+        <app-mole [active]="activeMoles[6].active"></app-mole>
     </div>
 </div>
 <button *ngIf="!gameIsRunning" (click)="startMatch()">{{actionName}}</button>

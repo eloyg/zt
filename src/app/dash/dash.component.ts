@@ -1,20 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { interval, pipe, timer } from 'rxjs';
-import { takeUntil, timeout } from 'rxjs/operators'
-
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
+import { Mole } from '../model/mole.model';
 @Component({
   selector: 'app-dash',
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css']
 })
-export class DashComponent implements OnInit {
+export class DashComponent {
 
   maxMoles = 6; // game has 6 moles in total
-  activeMoles = []; // size changes randomly
+  activeMoles: Mole[] = []; // size changes randomly
   gameDuration = 30; // in secs.
   gameIsRunning = true; // false if game has ended.
-  elapsedTime = 0; // will be 30 after 30 secs counted from user click
-  timeout = false;
   actionName = "Start game";
   // 6 nodos en donde en cada uno reservo una función que aleatoriamente entre un valor
   // entre 1 y 3, que luego se utiliza para la función de vida del mole.
@@ -23,24 +20,24 @@ export class DashComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  buildMoles() {
+    for(let i=0; i< this.maxMoles; i++ )
+      this.activeMoles.push(new Mole(i));
   }
 
   startMatch() {
-    this.timeout = false;
     this.gameIsRunning = true;
     this.setMatchClock();
   }
 
   endMatch() {
-    this.timeout = true;
     this.gameIsRunning = false;      
     this.actionName = "Try again";
   }
 
   setMatchClock() {
     this.startMatch();
-    const result = timer(this.gameDuration * 1000)
+    timer(this.gameDuration * 1000)
     .subscribe(() => this.endMatch());
   }
 }
