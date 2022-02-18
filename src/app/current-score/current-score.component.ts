@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ScoreState } from '../state/reducer';
 
 @Component({
   selector: 'app-current-score',
@@ -6,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./current-score.component.css']
 })
 export class CurrentScoreComponent implements OnInit {
-
-  constructor() { }
+  currentScore: Observable<number>;
+  
+  constructor(private store: Store<ScoreState>) { 
+    this.currentScore = this.store.select((state: ScoreState) => state.currentScore);
+}
 
   ngOnInit(): void {
   }

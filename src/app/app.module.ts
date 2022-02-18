@@ -21,7 +21,6 @@ import { scoreReducer } from './state/reducer';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // StoreModule.forRoot({})
     StoreModule.forRoot({score: scoreReducer})
   ],
   providers: [],

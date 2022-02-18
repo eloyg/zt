@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { Mole } from '../model/mole.model';
 import { setHighestScore } from '../state/actions';
 import { ScoreState } from '../state/reducer';
@@ -16,6 +16,7 @@ export class DashComponent implements OnInit {
   gameDuration = 10; // in secs.
   gameRunning = false; // false if game has ended.
   actionName = "Start game";
+  
 
   constructor(private store: Store<ScoreState>) { 
   }

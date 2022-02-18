@@ -1,4 +1,8 @@
+import { state } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { ScoreState } from '../state/reducer';
 
 @Component({
   selector: 'app-highest-scrore',
@@ -7,9 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HighestScroreComponent implements OnInit {
 
-  constructor() { }
+  score: Observable<number>;
+  constructor(private store: Store<ScoreState>) {
+    this.score = this.store.select((state: ScoreState) => state.highestScore);
+  }
 
   ngOnInit(): void {
+    
   }
 
 }
