@@ -11,9 +11,11 @@ import { ScoreState } from '../state/reducer';
 })
 export class HighestScroreComponent implements OnInit {
 
-  score: Observable<number>;
+  score: number = 0;
   constructor(private store: Store<ScoreState>) {
-    this.score = this.store.select((state: ScoreState) => state.highestScore);
+    this.store.subscribe(state => {
+      this.score = state.highestScore;
+    });
   }
 
   ngOnInit(): void {

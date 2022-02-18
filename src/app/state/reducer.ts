@@ -24,5 +24,9 @@ export const scoreReducer = createReducer(
   on(ScoreActions.updateCurrentScore, (state, { scoreVariation }) => ({
     ...state,
     currentScore: state.currentScore + scoreVariation,
+  })),
+  on(ScoreActions.resetCurrentScore, (state, { }) => ({
+    ...state,
+    currentScore: 0,
   }))
 );

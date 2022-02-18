@@ -9,6 +9,7 @@ import { HighestScroreComponent } from './highest-score/highest-scrore.component
 import { CurrentScoreComponent } from './current-score/current-score.component';
 import { StoreModule } from '@ngrx/store';
 import { scoreReducer } from './state/reducer';
+import * as fromScore from './state/reducer';
 
 @NgModule({
   declarations: [
@@ -19,9 +20,10 @@ import { scoreReducer } from './state/reducer';
     CurrentScoreComponent
   ],
   imports: [
+    StoreModule.forRoot({score: fromScore.scoreReducer}),
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({score: scoreReducer})
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,10 +9,13 @@ import { ScoreState } from '../state/reducer';
   styleUrls: ['./current-score.component.css']
 })
 export class CurrentScoreComponent implements OnInit {
-  currentScore: Observable<number>;
+  currentScore: number = 0;
   
   constructor(private store: Store<ScoreState>) { 
-    this.currentScore = this.store.select((state: ScoreState) => state.currentScore);
+    // this.currentScore = this.store.select((state: ScoreState) => state.currentScore);
+    this.store.subscribe(state => {
+      this.currentScore = state.currentScore;
+    });
 }
 
   ngOnInit(): void {

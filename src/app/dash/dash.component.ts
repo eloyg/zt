@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, timer } from 'rxjs';
 import { Mole } from '../model/mole.model';
-import { setHighestScore } from '../state/actions';
+import { resetCurrentScore, setHighestScore } from '../state/actions';
 import { ScoreState } from '../state/reducer';
 @Component({
   selector: 'app-dash',
@@ -45,6 +45,7 @@ export class DashComponent implements OnInit {
     this.gameRunning = false;      
     this.actionName = "Try again";
     this.processHighestScore();
+    this.store.dispatch(resetCurrentScore());
   }
 
   setMatchClock() {
