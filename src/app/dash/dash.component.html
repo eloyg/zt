@@ -11,5 +11,4 @@
         <app-mole *ngIf="activeMoles[6]"></app-mole>
     </div>
 </div>
-<button *ngIf="!gameIsRunning" (click)="startGame()">Start game</button>
-<button *ngIf="gameIsRunning" (click)="anotherTry()">Try again</button>
+<button *ngIf="!gameIsRunning" (click)="startMatch()">{{actionName}}</button>
