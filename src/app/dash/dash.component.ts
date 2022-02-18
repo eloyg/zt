@@ -11,32 +11,28 @@ export class DashComponent {
   maxMoles = 6; // game has 6 moles in total
   activeMoles: Mole[] = []; // size changes randomly
   gameDuration = 30; // in secs.
-  gameIsRunning = true; // false if game has ended.
+  gameRunning = false; // false if game has ended.
   actionName = "Start game";
-  // 6 nodos en donde en cada uno reservo una función que aleatoriamente entre un valor
-  // entre 1 y 3, que luego se utiliza para la función de vida del mole.
-
-  // por otro lado tenemos el tiempo de la game.
 
   constructor() { }
 
-  buildMoles() {
+  createMoles() {
     for(let i=0; i< this.maxMoles; i++ )
       this.activeMoles.push(new Mole(i));
   }
-
+  
   startMatch() {
-    this.gameIsRunning = true;
+    this.createMoles();
+    this.gameRunning = true;
     this.setMatchClock();
   }
 
   endMatch() {
-    this.gameIsRunning = false;      
+    this.gameRunning = false;      
     this.actionName = "Try again";
   }
 
   setMatchClock() {
-    this.startMatch();
     timer(this.gameDuration * 1000)
     .subscribe(() => this.endMatch());
   }

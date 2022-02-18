@@ -1,6 +1,7 @@
 
-<div>
-    <div>
+<div *ngIf="gameRunning">
+    <app-current-score></app-current-score>
+<!--     <div>
         <app-mole [active]="activeMoles[1].active"></app-mole>
         <app-mole [active]="activeMoles[2].active"></app-mole>
         <app-mole [active]="activeMoles[3].active"></app-mole>
@@ -9,6 +10,11 @@
         <app-mole [active]="activeMoles[4].active"></app-mole>
         <app-mole [active]="activeMoles[5].active"></app-mole>
         <app-mole [active]="activeMoles[6].active"></app-mole>
+    </div> -->
+
+    <div *ngFor="let mole of activeMoles">
+        <app-mole [active]="mole.active"></app-mole>
     </div>
+
 </div>
-<button *ngIf="!gameIsRunning" (click)="startMatch()">{{actionName}}</button>
+<button *ngIf="!gameRunning" (click)="startMatch()">{{actionName}}</button>
