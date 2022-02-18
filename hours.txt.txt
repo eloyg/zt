@@ -4,4 +4,4 @@
 3. Lifecycles design (mole and game) (20 mins)
 4. Components diagram (15 min)
 5. Coding (2:25 hs)
-
+6. Code Stabilization (5 mins)
