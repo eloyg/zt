@@ -1,0 +1,7 @@
+1. Domain analysis (20 mins)
+2. Use case design (10 mins)
+2. Main system interactions design (30 mins)
+3. Lifecycles design (mole and game) (20 mins)
+4. Components diagram (15 min)
+5. Coding (2:25 hs)
+
