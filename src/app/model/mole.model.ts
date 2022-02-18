@@ -4,9 +4,9 @@ export class Mole {
     id: number;
     active: boolean;
    
-    constructor(id: number, active?: boolean) {
+    constructor(id: number) {
         this.id = id;
-        this.active = active || false;
+        this.active = true;
         this.setMoleClock();    
     }
 

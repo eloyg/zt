@@ -6,7 +6,7 @@ import { Mole } from '../model/mole.model';
   templateUrl: './dash.component.html',
   styleUrls: ['./dash.component.css']
 })
-export class DashComponent {
+export class DashComponent implements OnInit {
 
   maxMoles = 6; // game has 6 moles in total
   activeMoles: Mole[] = []; // size changes randomly
@@ -15,6 +15,9 @@ export class DashComponent {
   actionName = "Start game";
 
   constructor() { 
+  }
+
+  ngOnInit() {
   }
 
   createMoles() {
